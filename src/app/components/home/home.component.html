@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <ul class="list-group list-group-flush">
+                @for (tutorial of tutorials; track tutorial.id; let i = $index) {
+                    <li
+                        class="list-group-item"
+                    >
+                    <h4> {{tutorial.title}} </h4>
+                    <p>Last updated: {{tutorial.updatedAt | date: 'MMM d, y'}}</p>
+                    <p> {{tutorial.description}} </p>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search by title"
+                    [(ngModel)]="title"
+                    (keyup.enter)="searchTitle()"
+                />
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-outline-secondary"
+                        type="button"
+                        (click)="searchTitle()"
+                    >
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
