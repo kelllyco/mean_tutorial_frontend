@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial } from '../models/tutorial.model';
+import { map } from 'rxjs';
 
 const baseUrl = 'http://localhost:8080/api/tutorials';
 
@@ -43,5 +44,14 @@ export class TutorialService {
 
   findByTitle(title: any): Observable<Tutorial[]> {
     return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
+  }
+  
+  findByAuthorId(authorId: any): Observable<Tutorial[]> {
+    return this.http.get<Tutorial[]>(`${baseUrl}?authorId=${authorId}`);
+  }
+
+  findPublishedByTitle(title: any): Observable<Tutorial[]> {
+    return this.findByTitle(title)
+      .pipe(map(tutorials => tutorials.filter(tutorial => tutorial.published === true)));
   }
 }
