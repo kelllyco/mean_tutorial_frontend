@@ -10,6 +10,7 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { ExpandedComponent } from './components/expanded/expanded.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './components/home/home.component';
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
-    HomeComponent
+    HomeComponent,
+    ExpandedComponent
   ],
   imports: [
     BrowserModule,

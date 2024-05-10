@@ -3,13 +3,16 @@
         <div class="col-8">
             <ul class="list-group list-group-flush">
                 @for (tutorial of tutorials; track tutorial.id; let i = $index) {
-                    <li
-                        class="list-group-item"
+                    <a routerLink="/{{tutorial.id}}" 
+                        class="list-group-item list-group-item-action"
                     >
                     <h4> {{tutorial.title}} </h4>
                     <p>Last updated: {{tutorial.updatedAt | date: 'MMM d, y'}}</p>
+                    @if (getAuthorById(tutorial.authorId)) {
+                        <p>Author: {{authorName}}</p>
+                    }
                     <p> {{tutorial.description}} </p>
-                    </li>
+                    </a>
                 }
             </ul>
         </div>

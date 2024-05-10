@@ -1,0 +1,11 @@
+
+@if (currentTutorial.id) {
+    <div>
+        <h2>{{ currentTutorial.title }}</h2>   
+    </div>
+<hr />
+    <dl class="row">
+        <dt class="col-sm-3">About</dt>
+        <dd class="col-sm-9">{{ currentTutorial.description }}</dd>
+    </dl>
+} @else {<p>Cannot access this Tutorial</p>}
