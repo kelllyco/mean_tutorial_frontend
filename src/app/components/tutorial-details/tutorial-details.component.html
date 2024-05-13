@@ -31,6 +31,16 @@
                     />
                 </div>
                 <div class="form-group">
+                    <label for="author">Author</label>
+                    <select class="form-control" id="author">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="description">Description</label>
                     <input
                         type="text"
@@ -39,6 +49,17 @@
                         [(ngModel)]="currentTutorial.description"
                         name="description"
                     />
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea 
+                        type="text"
+                        class="form-control"
+                        id="content"
+                        [(ngModel)]="currentTutorial.content"
+                        name="content"
+                        rows="4"
+                    ></textarea>   
                 </div>
 
                 <div class="form-group">

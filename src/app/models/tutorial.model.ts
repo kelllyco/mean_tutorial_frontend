@@ -4,5 +4,6 @@ export class Tutorial {
     description?: string;
     published?: boolean;
     updatedAt?: Date;
+    content?: string;
     authorId?: any;
 }
