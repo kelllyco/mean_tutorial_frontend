@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { ExpandedComponent } from './components/expanded/expanded.component';
+import { AuthorDetailsComponent } from './components/author-details/author-details.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ExpandedComponent } from './components/expanded/expanded.component';
     TutorialDetailsComponent,
     TutorialsListComponent,
     HomeComponent,
-    ExpandedComponent
+    ExpandedComponent,
+    AuthorDetailsComponent
   ],
   imports: [
     BrowserModule,
