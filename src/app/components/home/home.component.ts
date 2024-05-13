@@ -9,12 +9,16 @@ import { AuthorService } from '../../services/author.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent implements OnInit{
   
   tutorials?: Tutorial[];
   currentTutorial: Tutorial = {};
+  authors?: Author[];
   currentIndex = -1;
   title = '';
+
+
 
   constructor(private tutorialService: TutorialService, private authorService: AuthorService) {}
 
@@ -31,15 +35,17 @@ export class HomeComponent implements OnInit{
         error: (e) => console.error(e)
       });
   }
-  getAuthorById(id: any): any {
-    this.authorService.get(id)
+  retrieveAuthors(): void {
+    this.authorService.getAll()
       .subscribe({
         next: (data) => {
-          return data.name;
+          this.authors = data;
         },
         error: (e) => console.error(e)
       });
   }
+
+
 
   searchTitle(): void {
     this.tutorialService.findPublishedByTitle(this.title)

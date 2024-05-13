@@ -8,8 +8,8 @@
                     >
                     <h4> {{tutorial.title}} </h4>
                     <p>Last updated: {{tutorial.updatedAt | date: 'MMM d, y'}}</p>
-                    @if (getAuthorById(tutorial.authorId)) {
-                        <p>Author: {{authorName}}</p>
+                    @if (tutorial.authorId) {
+                        <app-author-details [currentAuthorId]="tutorial.authorId"></app-author-details>
                     }
                     <p> {{tutorial.description}} </p>
                     </a>
