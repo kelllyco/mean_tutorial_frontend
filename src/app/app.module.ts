@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { ExpandedComponent } from './components/expanded/expanded.component';
 import { AuthorDetailsComponent } from './components/author-details/author-details.component';
+import { AuthorListComponent } from './components/author-list/author-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthorDetailsComponent } from './components/author-details/author-detai
     TutorialsListComponent,
     HomeComponent,
     ExpandedComponent,
-    AuthorDetailsComponent
+    AuthorDetailsComponent,
+    AuthorListComponent
   ],
   imports: [
     BrowserModule,

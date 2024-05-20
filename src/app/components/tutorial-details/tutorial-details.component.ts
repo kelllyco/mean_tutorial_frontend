@@ -15,7 +15,9 @@ export class TutorialDetailsComponent implements OnInit {
   @Input() currentTutorial: Tutorial = {
     title: '',
     description: '',
-    published: false
+    published: false,
+    content: '',
+    authorId: ''
   };
 
   message = '';

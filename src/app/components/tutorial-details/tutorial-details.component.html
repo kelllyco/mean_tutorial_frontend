@@ -30,16 +30,7 @@
                         name="title"
                     />
                 </div>
-                <div class="form-group">
-                    <label for="author">Author</label>
-                    <select class="form-control" id="author">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
+                <app-author-list [(ngModel)]="currentTutorial.authorId" name="authorId" id="authorId"></app-author-list>
                 <div class="form-group">
                     <label for="description">Description</label>
                     <input

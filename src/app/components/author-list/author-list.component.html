@@ -1,0 +1,7 @@
+
+    <div class="form-group">
+        <label for="authorId">Author</label>
+        <select [(ngModel)]="selectedAuthorId" (change)="onAuthorChange()" class="form-control">
+            <option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</option>
+        </select>
+    </div>
