@@ -13,6 +13,8 @@
                 />
             </div>
 
+            <app-author-list [(ngModel)]="tutorial.authorId" name="authorId" id="authorId"></app-author-list>
+
             <div class="form-group">
                 <label for="description">Description</label>
                 <input
@@ -22,6 +24,18 @@
                     [(ngModel)]="tutorial.description"
                     name="description"
                 />
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea
+                    type="text"
+                    class="form-control"
+                    id="content"
+                    [(ngModel)]="tutorial.content"
+                    name="content"
+                    rows="4"
+                ></textarea>
             </div>
 
             <button (click)="saveTutorial()" class="btn btn-success">Submit</button>

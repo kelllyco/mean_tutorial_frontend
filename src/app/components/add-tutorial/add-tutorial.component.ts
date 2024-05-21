@@ -11,6 +11,8 @@ export class AddTutorialComponent {
 
   tutorial: Tutorial = {
     title: '',
+    authorId: '',
+    content: '',
     description: '',
     published: false
   };
@@ -21,9 +23,13 @@ export class AddTutorialComponent {
   saveTutorial(): void {
     const data = {
       title: this.tutorial.title,
-      description: this.tutorial.description
+      description: this.tutorial.description,
+      published: this.tutorial.published,
+      content: this.tutorial.content,
+      authorId: this.tutorial.authorId
     };
 
+    console.log(data);
     this.tutorialService.create(data)
       .subscribe({
         next: (res) => {
@@ -39,7 +45,9 @@ export class AddTutorialComponent {
     this.tutorial = {
       title: '',
       description: '',
-      published: false
+      published: false,
+      authorId: '',
+      content: ''
     };
   }
 }
