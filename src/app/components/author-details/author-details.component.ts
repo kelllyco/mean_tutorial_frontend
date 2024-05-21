@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AuthorDetailsComponent implements OnInit{
 
   @Input() currentAuthorId: string = "";
+  @Input() preview: boolean = false;
 
   currentAuthor: Author = {
     name: '',

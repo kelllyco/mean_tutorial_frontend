@@ -1,3 +1,9 @@
-@if (currentAuthor.id){
+@if (preview){
+    @if (currentAuthor.id){
+        <a routerLink="/authors/{{currentAuthor.id}}" class="link-secondary">{{currentAuthor.name}}</a>
+    }
+    @else {<p>Author not listed</p>}
+} @else {
     {{currentAuthor.name}}
-} @else {<p>problem</p>}
+    {{currentAuthor.website}}
+}

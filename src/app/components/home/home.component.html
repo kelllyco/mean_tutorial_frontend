@@ -9,7 +9,7 @@
                     <h4> {{tutorial.title}} </h4>
                     <h6>Last updated: {{tutorial.updatedAt | date: 'MMM d, y'}}
                     @if (tutorial.authorId) {
-                        | <app-author-details [currentAuthorId]="tutorial.authorId"></app-author-details>
+                        | <app-author-details [preview]="true" [currentAuthorId]="tutorial.authorId"></app-author-details>
                     }
                 </h6>
                     <p> {{tutorial.description}} </p>
