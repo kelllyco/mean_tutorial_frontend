@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Tutorial } from '../../models/tutorial.model';
-import { Author } from '../../models/author.model';
 import { TutorialService } from '../../services/tutorial.service';
-import { AuthorService } from '../../services/author.service';
 
 @Component({
   selector: 'app-home',
@@ -12,18 +10,35 @@ import { AuthorService } from '../../services/author.service';
 
 export class HomeComponent implements OnInit{
   
+@Input() authorId: String = "";
+
   tutorials?: Tutorial[];
   currentTutorial: Tutorial = {};
-  authors?: Author[];
   currentIndex = -1;
   title = '';
 
 
 
-  constructor(private tutorialService: TutorialService, private authorService: AuthorService) {}
+  constructor(private tutorialService: TutorialService) {}
 
   ngOnInit(): void {
-      this.retrievePublished();
+      if (this.authorId === ""){
+        this.retrievePublished();
+      }
+      else {
+        this.retrieveByAuthor();
+      }   
+  }
+
+  retrieveByAuthor(): void {
+    this.tutorialService.findPublishedByAuthorId(this.authorId)
+      .subscribe({
+        next: (data) => {
+          this.tutorials = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
   }
 
   retrievePublished(): void {
@@ -35,17 +50,6 @@ export class HomeComponent implements OnInit{
         error: (e) => console.error(e)
       });
   }
-  retrieveAuthors(): void {
-    this.authorService.getAll()
-      .subscribe({
-        next: (data) => {
-          this.authors = data;
-        },
-        error: (e) => console.error(e)
-      });
-  }
-
-
 
   searchTitle(): void {
     this.tutorialService.findPublishedByTitle(this.title)

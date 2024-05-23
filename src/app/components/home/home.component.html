@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="col">
             <ul class="list-group list-group-flush">
                 @for (tutorial of tutorials; track tutorial.id; let i = $index) {
                     <a routerLink="/{{tutorial.id}}" 
@@ -17,25 +17,27 @@
                 }
             </ul>
         </div>
-        <div class="col">
-            <div class="input-group mb-3">
-                <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search by title"
-                    [(ngModel)]="title"
-                    (keyup.enter)="searchTitle()"
-                />
-                <div class="input-group-append">
-                    <button
-                        class="btn btn-outline-secondary"
-                        type="button"
-                        (click)="searchTitle()"
-                    >
-                        Search
-                    </button>
+        @if (this.authorId === "") {
+            <div class="col-4">
+                <div class="input-group mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search by title"
+                        [(ngModel)]="title"
+                        (keyup.enter)="searchTitle()"
+                    />
+                    <div class="input-group-append">
+                        <button
+                            class="btn btn-outline-secondary"
+                            type="button"
+                            (click)="searchTitle()"
+                        >
+                            Search
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>

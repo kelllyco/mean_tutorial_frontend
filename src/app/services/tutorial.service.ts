@@ -50,6 +50,11 @@ export class TutorialService {
     return this.http.get<Tutorial[]>(`${baseUrl}?authorId=${authorId}`);
   }
 
+  findPublishedByAuthorId(authorId: any): Observable<Tutorial[]> {
+    return this.findByAuthorId(authorId)
+      .pipe(map(tutorials => tutorials.filter(tutorial => tutorial.published === true)));
+  }
+
   findPublishedByTitle(title: any): Observable<Tutorial[]> {
     return this.findByTitle(title)
       .pipe(map(tutorials => tutorials.filter(tutorial => tutorial.published === true)));

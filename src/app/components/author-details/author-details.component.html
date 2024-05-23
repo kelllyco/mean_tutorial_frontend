@@ -9,10 +9,8 @@
             <div class="col-8">
                 <h2>{{currentAuthor.name}}</h2>
                 <hr />
-                {{currentAuthor.about}}
-                <div class="row">
-                    <button type="button" routerLink="/" class="btn btn-outline-secondary mt-3">{{currentAuthor.name}}'s Recipes</button>
-                </div>  
+                <p class="mb-3">{{currentAuthor.about}}</p>
+                    <app-home [authorId]="this.currentAuthorId"></app-home>
             </div> 
             <div class="col-4">
                 <img [src]="currentAuthor.pfp" class="img-fluid" alt="{{ currentAuthor.name }}" *ngIf="currentAuthor.pfp">

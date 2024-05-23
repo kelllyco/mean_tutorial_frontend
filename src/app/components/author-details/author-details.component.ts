@@ -25,12 +25,11 @@ export class AuthorDetailsComponent implements OnInit{
     private route: ActivatedRoute) {  }
 
   ngOnInit(): void {
-      if (this.currentAuthorId == ""){
-        this.getAuthor(this.route.snapshot.params["id"]);
+      if (this.currentAuthorId === ""){
+        this.currentAuthorId = this.route.snapshot.params["id"];
       }
-      else {
-        this.getAuthor(this.currentAuthorId);
-      }
+      this.getAuthor(this.currentAuthorId);
+
   }
 
   getAuthor(id: string): void {
