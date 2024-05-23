@@ -4,6 +4,23 @@
     }
     @else {<p>Author not listed</p>}
 } @else {
-    {{currentAuthor.name}}
-    {{currentAuthor.website}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8">
+                <h2>{{currentAuthor.name}}</h2>
+                <hr />
+                {{currentAuthor.about}}
+                <div class="row">
+                    <button type="button" routerLink="/" class="btn btn-outline-secondary mt-3">{{currentAuthor.name}}'s Recipes</button>
+                </div>  
+            </div> 
+            <div class="col-4">
+                <img [src]="currentAuthor.pfp" class="img-fluid" alt="{{ currentAuthor.name }}" *ngIf="currentAuthor.pfp">
+                <figcaption class="figure-caption">{{currentAuthor.caption}}</figcaption>
+            </div>
+        </div>
+        <div class="row">
+            
+        </div>
+    </div> 
 }

@@ -15,7 +15,9 @@ export class AuthorDetailsComponent implements OnInit{
 
   currentAuthor: Author = {
     name: '',
-    website: ''
+    caption: '',
+    about: '',
+    pfp: ''
   };
 
   constructor(
